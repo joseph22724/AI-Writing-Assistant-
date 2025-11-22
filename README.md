@@ -17,3 +17,6 @@ AI-powered writing tool with different modes
 - Strategy: Different writing modes
 - Factory: Request creation
 - Observer: UI updates using ActionListener
+
+## Video Demo
+https://youtu.be/GoUBtaMLi84 
