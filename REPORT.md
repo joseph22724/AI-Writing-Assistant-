@@ -1,3 +1,4 @@
+
 #Project Report
 
 ## Challenges
@@ -24,7 +25,8 @@
 **4. Observer Pattern **
  Justification: Using "ActionListener" to the "Generate" button, the Controller waits for user input asynchronously, the View handles display while the Controller handles logic.
 
-## 🤖 AI Usage
+## AI Usage
+Used ChatGPT as a Search Engine
 
 **1. Freezing UI Problem **
  Context: In Swing, I learned that running a long network request on the main thread blocks the Event Dispatch Thread. When I clicked "Generate" the window froze while waiting for the API.
@@ -36,4 +38,5 @@
  Prompt: Asked Chatgpt "The json coming back from the api is long, Is there an simpler way to get the specific text string I need using Gson? I dont want to use seperate classes."
  Result: The AI showed me how to use chain method calls into the json text. 
 
-## ⏱️ Time Spent: ~20 hours
+
+## Time Spent: ~20 hours
