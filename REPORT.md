@@ -16,7 +16,7 @@
 **1. Strategy Pattern **
  Justification: Needed different AI behaviors that could be swapped at runtime. Using the Strategy to encapsulate each prompt logic into its own class.
 
-**2. Singleton Pattern (ConfigManager)**
+**2. Singleton Pattern ** (ConfigManager)**
  Justification: The Singleton pattern makes sure the configuration is loaded into memory and is reused instead of reading from the drive, which is slow.
 
 **3. Factory Pattern **
