@@ -11,6 +11,7 @@ AI-powered writing tool with different modes
 - Creative writing mode
 - Professional writing mode
 - Academic writing mode
+- Grammar Check mode
 
 ## Design Patterns
 - Strategy: Different writing modes
