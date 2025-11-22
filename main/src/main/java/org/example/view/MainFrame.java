@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(new JLabel("Select Mode:"));
 
-        String[] modes = {"Professional", "Creative", "Academic"};
+        String[] modes = {"Professional", "Creative", "Academic", "Grammar Check"};
         modeSelector = new JComboBox<>(modes);
 
         topPanel.add(modeSelector);

@@ -12,6 +12,7 @@ public class StrategyFactory {
             case "professional" -> new ProfessionalStrategy();
             case "creative" ->  new CreativeStrategy();
             case "academic" -> new AcademicStrategy();
+            case "grammar check" -> new GrammarCheckStrategy();
             default -> throw new IllegalArgumentException("Unknown mode " + modeType);
         };
     }
