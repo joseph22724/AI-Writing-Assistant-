@@ -4,8 +4,8 @@ import org.example.model.strategy.StrategyFactory;
 import org.example.model.strategy.WritingStrategy;
 import org.example.service.APIService;
 import org.example.view.MainFrame;
-
 import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,8 +17,6 @@ public class MainController {
     public MainController(MainFrame view, APIService service) {
         this.view = view;
         this.service = service;
-
-
         this.view.addGenerateListener(new GenerateAction());
     }
 
@@ -27,34 +25,39 @@ public class MainController {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            view.setStatus("Generating, please wait...");
+            String userText = MainController.this.view.getInputText();
 
-            // gets data from view
-            String userText = view.getInputText() ;
-            String mode = view.getSelectedMode();
+            if (userText == null || userText.trim().isEmpty()) {
 
-            // Run on a background thread (so gui doesn't freeze)
-            new Thread(() -> {
+                JOptionPane.showMessageDialog(MainController.this.view,
+                        "Cannot accept blank text",
+                        "Input Error",
+                        JOptionPane.WARNING_MESSAGE);
+
+                return;
+            }
+
+            MainController.this.view.setStatus("Generating, please wait...");
+            String mode = MainController.this.view.getSelectedMode();
+
+            (new Thread(() -> {
                 try {
                     WritingStrategy strategy = StrategyFactory.getStrategy(mode);
-
-                    // call API
-                    String result = service.generateText(strategy.getSystemInstruction(), userText);
+                    String result = MainController.this.service.generateText(strategy.getSystemInstruction(), userText);
 
                     SwingUtilities.invokeLater(() -> {
-                        view.setOutputText(result);
-                        view.setStatus("Success! ");
+                        MainController.this.view.setOutputText(result);
+                        MainController.this.view.setStatus("Success! ");
                     });
-
                 } catch (Exception ex) {
                     SwingUtilities.invokeLater(() -> {
-                        view.setOutputText("Error: " + ex.getMessage() );
-                        view.setStatus("Error occurred.");
+                        MainController.this.view.setOutputText("Error: " + ex.getMessage());
+                        MainController.this.view.setStatus("Error occurred.");
 
                     });
                     ex.printStackTrace();
                 }
-            }).start();
+            })).start();
         }
     }
 }
