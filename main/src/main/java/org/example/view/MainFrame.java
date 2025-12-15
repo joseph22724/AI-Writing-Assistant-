@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
     private JComboBox<String> modeSelector;
     private JButton generateButton;
     private JLabel statusLabel;
+    private JComboBox<String> languageSelector;
 
     public MainFrame(){
 
@@ -27,6 +28,12 @@ public class MainFrame extends JFrame {
         modeSelector = new JComboBox<>(modes);
 
         topPanel.add(modeSelector);
+
+        topPanel.add(new JLabel(" Language:")); // Label
+
+        String[] languages = {"English", "Spanish", "French", "German", "Japanese", "Chinese"};
+        languageSelector = new JComboBox<>(languages);
+        topPanel.add(languageSelector);
 
         generateButton = new JButton("Rewrite Text");
         topPanel.add(generateButton);
@@ -73,6 +80,7 @@ public class MainFrame extends JFrame {
     public String getSelectedMode() {return (String) modeSelector.getSelectedItem();}
     public void setStatus(String text) {statusLabel.setText(text); }
 
+    public String getSelectedLanguage() { return (String) languageSelector.getSelectedItem(); }
 
     public void addGenerateListener(ActionListener listener){
         generateButton.addActionListener(listener);

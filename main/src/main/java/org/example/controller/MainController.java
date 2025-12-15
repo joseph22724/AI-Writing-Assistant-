@@ -39,11 +39,18 @@ public class MainController {
 
             MainController.this.view.setStatus("Generating, please wait...");
             String mode = MainController.this.view.getSelectedMode();
+            String language = MainController.this.view.getSelectedLanguage();
 
             (new Thread(() -> {
                 try {
                     WritingStrategy strategy = StrategyFactory.getStrategy(mode);
-                    String result = MainController.this.service.generateText(strategy.getSystemInstruction(), userText);
+                    String finalInstruction = strategy.getSystemInstruction();
+
+                    if (!"English".equals(language)) {
+                        finalInstruction += "IMPORTANT: Output the result in " + language;
+                    }
+
+                    String result = MainController.this.service.generateText(finalInstruction, userText);
 
                     SwingUtilities.invokeLater(() -> {
                         MainController.this.view.setOutputText(result);
