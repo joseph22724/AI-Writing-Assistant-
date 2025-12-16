@@ -9,6 +9,7 @@ public class StrategyFactory {
         }
 
         return switch (modeType.toLowerCase()) {
+            case "off" -> new OffStrategy();
             case "professional" -> new ProfessionalStrategy();
             case "creative" ->  new CreativeStrategy();
             case "academic" -> new AcademicStrategy();
