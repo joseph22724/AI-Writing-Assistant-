@@ -9,6 +9,7 @@ AI-powered writing tool with different modes
   api.key=" "
   
   api.url=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
+  
 5. Run Main.java
 
 ## Features
