@@ -24,9 +24,9 @@ AI-powered writing tool with different modes
 - Factory: Request creation
 - Observer: UI updates using ActionListener
 
-## Video Demos
-# Ver 1.1
+# Video Demos
+## Ver 1.1
 https://youtu.be/RTKqS4d6vFM
 
-# Ver 1.0
+## Ver 1.0
 https://youtu.be/GoUBtaMLi84 
