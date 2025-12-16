@@ -7,6 +7,7 @@ AI-powered writing tool with different modes
 3. go to/create "src/main/resources/config.properties " and add your key:
 
   api.key=" "
+  
   api.url=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
 5. Run Main.java
 
